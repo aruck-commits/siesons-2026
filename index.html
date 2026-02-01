@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SIESONS 2026 — Kabira</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top, #1a0f0a, #000);
+      color: #f3c96b;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    h1 { font-size: 3rem; letter-spacing: 3px; }
+    .theme { color: #ffd9a0; margin-bottom: 10px; }
+    .date { color: #ccc; }
+
+    .timer {
+      margin: 30px auto;
+      padding: 15px 30px;
+      border: 2px solid gold;
+      display: inline-block;
+      border-radius: 10px;
+      font-size: 1.5rem;
+    }
+
+    .btn {
+      margin-top: 25px;
+      padding: 14px 40px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      background: linear-gradient(135deg, gold, orange);
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      padding: 25px;
+      border-radius: 15px;
+      border: 1px solid rgba(255,215,100,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px rgba(255,200,100,0.4);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #888;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>SIESONS 2026</h1>
+  <div class="theme">Theme — Kabira 🕉️</div>
+  <div class="date">4th February 2026</div>
+  <div class="timer" id="timer">Loading...</div>
+  <br>
+  <a href="#passes"><button class="btn">Get Your Passes</button></a>
+</header>
+
+<section id="about">
+  <h2>About SIESONS</h2>
+  <p>
+    SIESONS is the annual cultural fest of SIES College — a fusion of art, chaos, talent, and madness.
+    This year’s theme <b>Kabira</b> celebrates mysticism, rebellion, and creative freedom.
+  </p>
+</section>
+
+<section id="events">
+  <h2>Events</h2>
+  <div class="cards">
+    <div class="card">🎤 Music & Rap Battles</div>
+    <div class="card">💃 Dance Showdowns</div>
+    <div class="card">🎭 Drama & Mono-Acts</div>
+    <div class="card">📸 Photography</div>
+    <div class="card">⚽ Sports & E-Gaming</div>
+    <div class="card">🧠 Quizzes & Open Mics</div>
+  </div>
+</section>
+
+<section id="passes">
+  <h2>Passes</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>🎟 General</h3>
+      <p>₹299</p>
+      <button class="btn">Buy Now</button>
+    </div>
+    <div class="card">
+      <h3>⭐ VIP</h3>
+      <p>₹599</p>
+      <button class="btn">Buy Now</button>
+    </div>
+    <div class="card">
+      <h3>🔥 All Access</h3>
+      <p>₹999</p>
+      <button class="btn">Buy Now</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 SIESONS Fest — Kabira Theme
+</footer>
+
+<script>
+  const festDate = new Date("Feb 4, 2026 00:00:00").getTime();
+
+  setInterval(() => {
+    const now = new Date().getTime();
+    const diff = festDate - now;
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const m = Math.floor((diff / (1000 * 60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("timer").innerHTML =
+      `${d}d ${h}h ${m}m ${s}s`;
+  }, 1000);
+</script>
+
+</body>
+</html>
