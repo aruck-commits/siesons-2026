@@ -81,6 +81,30 @@
   </style>
 </head>
 
+  <div id="payBox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8);">
+  <div style="background:#111; color:#f3c96b; padding:30px; border-radius:15px; width:300px; margin:100px auto;">
+    <h3>Demo Payment 💳</h3>
+    <input placeholder="Name" style="width:100%; padding:8px; margin:8px 0;">
+    <input placeholder="UPI / Card No" style="width:100%; padding:8px; margin:8px 0;">
+    <button class="btn" onclick="payDone()">Pay Now</button>
+    <br><br>
+    <button onclick="closePay()" style="background:none;color:#aaa;border:none;">Cancel</button>
+  </div>
+</div>
+
+<script>
+function openPay() {
+  document.getElementById("payBox").style.display = "block";
+}
+function closePay() {
+  document.getElementById("payBox").style.display = "none";
+}
+function payDone() {
+  alert("Payment Successful 😎 (Demo Only)");
+  closePay();
+}
+</script>
+
 <body>
 
 <header>
@@ -113,7 +137,7 @@
     <div class="card">
       <h3>🎟 General</h3>
       <p>₹500</p>
-      <button class="btn">Buy Now</button>
+      <button class="btn" onclick="openPay()">Buy Now</button>
     </div>
   </div>
 </section>
@@ -141,5 +165,6 @@
 
 </body>
 </html>
+
 
 
